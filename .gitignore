@@ -1,0 +1,19 @@
+# Rust / Cargo
+target/
+**/*.rs.bk
+Cargo.lock
+
+# Soroban / Stellar build artifacts
+*.wasm
+.stellar/
+.soroban/
+
+# Environment & secrets
+.env
+*.key
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
