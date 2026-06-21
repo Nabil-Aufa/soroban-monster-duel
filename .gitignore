@@ -7,10 +7,21 @@ Cargo.lock
 *.wasm
 .stellar/
 .soroban/
+**/test_snapshots/
+
+# Node / frontend
+node_modules/
+dist/
+.vite/
 
 # Environment & secrets
 .env
 *.key
+
+# Local agent tooling, skills & working guides (not part of the project)
+.agents/
+.claude/
+GUIDES/
 
 # OS / editor
 .DS_Store

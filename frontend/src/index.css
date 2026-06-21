@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+/* ---- Elemental Arena theme tokens (Tailwind v4 @theme) ---- */
+@theme {
+  --color-arena: #15111f;
+  --color-arena-2: #1b1529;
+  --color-panel: #211a33;
+  --color-panel-2: #2b2342;
+  --color-line: #382c54;
+  --color-ink: #f2ecff;
+  --color-muted: #9a8cc2;
+
+  --color-fire: #ff6b3d;
+  --color-water: #39a0ff;
+  --color-grass: #54d072;
+  --color-gold: #ffc94d;
+
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1100px 520px at 50% -8%, #271b44 0%, transparent 60%),
+    radial-gradient(800px 500px at 100% 100%, #1a2740 0%, transparent 55%),
+    var(--color-arena);
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Subtle arena grid behind everything */
+.arena-grid {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 38px 38px;
+}
+
+@keyframes clash {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: translateX(var(--clash, 6px)) rotate(var(--clash-rot, 2deg));
+  }
+}
+.clash {
+  animation: clash 1.6s ease-in-out infinite;
+}
+
+@keyframes pulse-gold {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 201, 77, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 28px 4px rgba(255, 201, 77, 0.35);
+  }
+}
+.pulse-gold {
+  animation: pulse-gold 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clash,
+  .pulse-gold {
+    animation: none;
+  }
+}
